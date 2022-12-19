@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --dark: rgb(9, 9, 9);
+    --light: rgb(225, 225, 225);
+
+
+}
+
+
+h1{
+    
+}
+
+body{
+    display: grid;
+    grid-template-rows: 100px 1fr 50px;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    background: var(--dark);
+    color: var(--light);
+    width: 100vw;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.location-conainer{
+
+}
+
+.temp-container{
+
+}
+
+.weather-icon{
+    font-size: 3rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark);
+    color: var(--light);
+    height: 100%;
+    width: 100%;
+}
