@@ -8,20 +8,26 @@ async function loadWeather (city = 'London') {
     }
     catch (error) {
         console.error('Error12', error);
+        showError('Error: city not found');
     }
 }
 
 function drawWeather ( d ){
     const locationContainer = document.querySelector('.location-container');
+    const timeContainer = document.querySelector('.time-container');
     const tempContainer = document.querySelector('.temp-container');
     const weatherContainer = document.querySelector('.weather-container');
     const weatherIcon = document.querySelector('ion-icon');
 
+
+    const today = new Date();
+    const time = today.getHours() + ':' + today.getMinutes(); 
     const location = d.name;
     const temp = Math.round(d.main.temp);
     const weather = d.weather[0].main;
     
     locationContainer.textContent = location;
+    timeContainer.textContent = time;
     tempContainer.innerHTML = temp + '&deg;';
     weatherContainer.textContent = weather;
     weatherIcon.setAttribute('name',iconSelector(weather));
@@ -35,14 +41,24 @@ function iconSelector ( weather ) {
             return 'sunny-outline';
         case 'Snow':
             return 'snow-outline';
+        case 'Rain':
+            return 'rainy-outline';
         default:
             return 'happy-outline';
     }
 }
 
+function showError( msg ) {
+    const error = document.querySelector('.error')
+    error.className = 'error active';
+    error.textContent = msg;
+}
+
 const viewController = (() => {
     const form = document.querySelector('form');
     const location = document.querySelector('#city-search');
+
+    loadWeather("Idyllwild");
 
     form.addEventListener('submit', (e) => {
         console.log(location.value);
@@ -54,3 +70,6 @@ const viewController = (() => {
     // loadWeather('Asheville, North Carolina');
 
 })();
+
+// /[a-zA-Z]+, [a-zA-z]+/gm
+// /^[a-zA-Z, ]+$/mg

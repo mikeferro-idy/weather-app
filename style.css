@@ -32,18 +32,81 @@ header{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    background-color: #374151;
 }
 
-.location-conainer{
+.search-container form{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
 
+.search-container label {
+    color: white;
+    text-transform: uppercase;
+}
+
+
+/* This is our style for the invalid fields */
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+  }
+  
+  input:focus:invalid {
+    outline: none;
+  }
+  
+  /* This is the style of our error messages */
+  .error {
+    width: 100%;
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+  
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
+
+  .weather-tile{
+    background-color: #075985;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+    height: 250px;
+    width: 300px;
+    border-radius: .5rem;
+  }
+
+
+
+.location-container{
+    grid-column: 1 / 2;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .temp-container{
-
+    font-size: 3rem;
 }
 
 .weather-icon{
-    font-size: 3rem;
+    font-size: 6rem;
+    grid-column: 1;
+    grid-row: 2 / span 2;
 }
 
 footer {
